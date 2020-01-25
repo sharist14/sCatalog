@@ -1,0 +1,14 @@
+# задаём utf-8 по умолчанию
+AddDefaultCharset utf-8
+
+# включаем mod_rewrite
+RewriteEngine on
+
+# задаем физическую директорию (используется для задания относительного пути)
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+# Если нет такого файла
+RewriteCond %{REQUEST_FILENAME} !-f
+# то направляем на index
+# Синтаксис: RewriteRule [ШАБЛОН] [СТРОКА ПОДСТАНОВКИ] [ФЛАГИ]
+RewriteRule ^(.*)$ index.php
